@@ -7,26 +7,31 @@ class Bob
 
     public function respondTo($str)
     {
-
         $str = trim($str);
 
         if (!$str) {
             return "Fine. Be that way!";
         }
 
-        $str_only_letters = preg_replace("/[^a-zA-Z]+/", "", $str);
-        $is_upper_case = ctype_upper($str_only_letters);
-
-        if ($is_upper_case) {
+        if ($this->isUpperCase($str)) {
             return "Whoa, chill out!";
         }
 
-        $is_question = (substr($str, -1) === '?');
-
-        if ($is_question) {
+        if ($this->isQuestion($str)) {
             return "Sure.";
         }
 
         return "Whatever.";
+    }
+
+    private function isUpperCase($str)
+    {
+        $str_only_letters = preg_replace("/[^a-zA-Z]+/", "", $str);
+        return ctype_upper($str_only_letters);
+    }
+
+    private function isQuestion($str)
+    {
+        return substr($str, -1) === '?';
     }
 }
