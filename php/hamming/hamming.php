@@ -2,20 +2,20 @@
 
 function distance($a, $b)
 {
-    $arr1 = str_split($a);
-    $arr2 = str_split($b);
+    $dna1 = str_split($a);
+    $dna2 = str_split($b);
 
-    if (count($arr1) != count($arr2)) {
+    if (count($dna1) != count($dna2)) {
         throw new InvalidArgumentException('DNA strands must be of equal length.');
     }
 
-    $count = 0;
+    $distance = 0;
 
-    foreach ($arr1 as $key => $value) {
-        if ($arr1[$key] != $arr2[$key]) {
-            $count += 1;
+    foreach ($dna1 as $key => $value) {
+        if ($dna1[$key] != $dna2[$key]) {
+            $distance += 1;
         }
     }
 
-    return $count;
+    return $distance;
 }
