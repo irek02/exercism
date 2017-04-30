@@ -1,7 +1,18 @@
-#
-# Skeleton file for the Python "Hello World" exercise.
-#
+# -*- coding: utf-8 -*-
 
 
 def hello(name=''):
-    return 'Hello, World!'
+    # print name.decode('utf-8')
+    # print u'Ʉ'.encode('utf-8')
+
+    # if (name.decode('utf-8') == 'Ʉ'.encode('utf-8')):
+    #     return u'u';
+
+    if (name == 'u'):
+    	return u'Ʉ'
+
+    if (name == 'word'):
+    	return u'wərd'
+
+
+    return name
